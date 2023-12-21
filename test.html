@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+ <script>
+   function subForm(){
+      console.log($('#myForm').serializeArray())
+      $.ajax({
+        url: 'https://api.apispreadsheets.com/data/YxEc7Ali1fLDkkGL/',
+        type: 'post',
+        data: $("#myForm").serializeArray(),
+        success: function(){
+          alert("Form Data Submitted :)");
+        },
+        error: function(){
+          alert("Something went wrong :(");
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <form id="myForm">
+    <label>Name</label>
+    <br />
+    <input name="name" type="text"/>
+
+    <label>Age</label>
+    <br />
+    <input name="age" type="number"/>
+  </form>
+  <button onclick="subForm()">Submit</button> 
+
+  <!-- <script src="./scripts/excelConnector.js"></script> -->
+</body>
+</html>
