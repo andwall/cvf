@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competing Values Framework</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script>
+    function SubForm(){
+      $.ajax({
+        url: '',
+        type: 'post',
+        data: $("#myForm").serializeArray(),
+        success: function(){
+          alert("Form Data Submitted :)");
+        },
+        error: function(){
+          alert("Something went wrong :(");
+        }
+      });
+    }
+  </script>
+  <!--GCDS-->
+  <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+
+  <!-- GC Design System -->
+  <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@latest/dist/gcds/gcds.css">
+  <script type="module" src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@latest/dist/gcds/gcds.esm.js"></script>
+  <script nomodule src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@latest/dist/gcds/gcds.js"></script>
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+  <gcds-header lang-href="#" skip-to-href="#"></gcds-header>
+  <gcds-container centered size="lg" padding="0">
+    <gcds-container centered size="lg" padding="400">
+      <h1 class="title">Competing Values Framework</h1>
+      <p class="desc">The competing values framework is...</p>
+    </gcds-container>
+    <gcds-container centered size="lg" padding="400">
+    
+      <!--Start form-->
+      <!-- Web component code (Angular, Vue) -->
+
+      <gcds-fieldset
+        id="sec1"
+        class="fieldset"
+        fieldset-id="fieldset"
+        legend="Section 1 - Dominant Characteristics of the Organization"
+        hint="Please read the following statements carfully and distribute 100 points to the 4 possible options."
+        error-message="">
+
+        <gcds-input class="form-input" size="6" input-id="form-input" type="number" label="1. The organization is a very personal place. It is like an extended family. People seem to share a lot of themselves." hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
+
+        <gcds-input class="form-input" size="6" input-id="form-input" type="number" label="2. Question" hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
+        
+        <gcds-input class="form-input" size="6" input-id="form-input" type="number" label="3. Question" hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
+
+        <gcds-input class="form-input" size="6" input-id="form-input" type="number" label="4. Question" hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
+
+      </gcds-fieldset>
+      </gcds-container>
+
+      <gcds-container centered size="large" padding="400">
+      <gcds-fieldset
+        id="sec2"
+        class="fieldset"
+        fieldset-id="fieldset"
+        legend="Section 2 - " 
+        hint="Please read the following statements carfully and distribute 100 points to the 4 possible options."
+        error-message="">
+
+        <gcds-input class="form-input" size="6" input-id="form-input" type="number" label="1. Question" min="0" max="100" value="0" required></gcds-input>
+
+        <gcds-input class="form-input" size="6" input-id="form-input" type="number" label="2. Question" hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
+        
+        <gcds-input class="form-input" size="6" input-id="form-input" type="number" label="3. Question" hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
+
+        <gcds-input class="form-input" size="6" input-id="form-input" type="number" label="4. Question" hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
+
+      </gcds-fieldset>
+      </gcds-container>
+
+      <gcds-container centered size="large" padding="400">
+        <gcds-button button-id="submit-btn" id="submit-btn">Submit</gcds-button>
+        <p id="temp-msg"></p>
+      </gcds-container>
+    </gcds-container>
+
+    <script src="./scripts/app.js"></script>
+</body>
+</html>
