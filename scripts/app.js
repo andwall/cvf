@@ -9,7 +9,7 @@ let isValid = false;
 
 /* Validates that each input has values >= MIN value and <= MAX value*/
 inputs.forEach(input => {
-  input.addEventListener('gcdsBlur', function(e) {
+  input.addEventListener('gcdsBlur', function() {
     if(parseInt(this.value) > this.getAttribute('max')){
       this.value = this.getAttribute('max');
     }else if(parseInt(this.value) < this.getAttribute('min')){
