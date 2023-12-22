@@ -5,21 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Competing Values Framework</title>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script>
-    function SubForm(){
-      $.ajax({
-        url: '',
-        type: 'post',
-        data: $("#myForm").serializeArray(),
-        success: function(){
-          alert("Form Data Submitted :)");
-        },
-        error: function(){
-          alert("Something went wrong :(");
-        }
-      });
-    }
-  </script>
+  
   <!--GCDS-->
   <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
@@ -43,11 +29,11 @@
         id="sec1"
         class="fieldset"
         fieldset-id="fieldset"
-        legend="Section 1 - Dominant Characteristics of the Organization"
+        legend="Section 1 - "
         hint="Please read the following statements carfully and distribute 100 points to the 4 possible options."
         error-message="">
 
-        <gcds-input name="sec1-q1" class="form-input question" size="6" input-id="form-input" type="number" label="1. The organization is a very personal place. It is like an extended family. People seem to share a lot of themselves." hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
+        <gcds-input name="sec1-q1" class="form-input question" size="6" input-id="form-input" type="number" label="1. Question" hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
 
         <gcds-input name="sec1-q2" class="form-input question" size="6" input-id="form-input" type="number" label="2. Question" hint="Please enter a value between 0-100" min="0" max="100" value="0" required></gcds-input>
         
@@ -85,5 +71,6 @@
     </gcds-container>
 
     <script src="./scripts/app.js"></script>
+    <script src="./scripts/excelConnector.js"></script>
 </body>
 </html>
