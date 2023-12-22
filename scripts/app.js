@@ -1,20 +1,25 @@
 const sections = document.querySelectorAll('.fieldset');
-const input = document.getElementById('form-input');
 const inputs = document.querySelectorAll('.form-input');
 const submitBtn = document.getElementById('submit-btn');
 const tempMsg = document.getElementById('temp-msg');
 const MAX = 100;
 const MIN = 0;
-let isValid = false;
 
 /* Validates that each input has values >= MIN value and <= MAX value*/
 inputs.forEach(input => {
   input.addEventListener('gcdsBlur', function() {
-    if(parseInt(this.value) > this.getAttribute('max')){
-      this.value = this.getAttribute('max');
-    }else if(parseInt(this.value) < this.getAttribute('min')){
-      this.value = this.getAttribute('min');
-    } 
+    const min = this.getAttribute('min');
+    const max = this.getAttribute('max');
+
+    if(parseInt(this.value) > max){
+      this.value = max;
+    }else if(parseInt(this.value) < min){
+      this.value = min;
+    }
+   
+    if(this.value > 0){
+      this.value = this.value.replace(/^0+/, '')
+    }
   }); 
 });
 
@@ -32,21 +37,35 @@ sections.forEach(section => {
     let rem = Math.abs(MAX - total);
     if(total < 100){
       message = `Please distribute your remaining ${rem} points`;
-      isValid = false;
     }else if(total > 100){
       message = `Please remove ${rem} points`
-      isValid = false;
-    }else{
-      isValid = true;
     }
     section.setAttribute('error-message', message);
   });
 });
 
+/* Function: getTotal
+*  Purpose: gets the total value of all input fields in the form
+*  in:      the name of the inputs to search for
+*  return:  the total value of all inputs
+*/
+function getTotal(inputName){
+  const inputs = document.querySelectorAll(inputName);
+  if(inputs.length == 0) return 0;
+  let total = 0;
+  inputs.forEach((input) => {
+    total += parseInt(input.value);
+  });
+  return total;
+}
+
 /* On submit form */
 submitBtn.addEventListener('click', function(){
-  if(isValid){
-    console.log("Do excel stuff");
+  const total = getTotal('.form-input');
+  console.log(total);
+  console.log(sections.length * MAX)
+  if(total == sections.length * MAX){
+    subForm();
     tempMsg.innerHTML = "Do excel stuff";
   }else{
     console.log("Wait theres stuff to fix");
