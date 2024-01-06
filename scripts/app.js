@@ -59,13 +59,37 @@ function getTotal(inputName){
   return total;
 }
 
+//return an array of all the data
+function buildData(){
+
+  let totals = [0,0,0,0];
+  let i = 0;
+
+  for(let j = 0; j < inputs.length; j++){
+    totals[i++] += parseInt(inputs[j].value);
+    if(i == 4) i = 0;
+  }
+
+  //take averages of totals
+  for(let z = 0; z < totals.length; z++){
+    totals[z] = totals[z]/sections.length;
+  }
+  //build array of objects
+  return [
+    {x: 'Collaborate', value: totals[0]},
+    {x: 'Create', value: totals[1]},
+    {x: 'Compete', value: totals[2]},
+    {x: 'Control', value: totals[3]},
+  ]
+}
+
 /* On submit form */
 submitBtn.addEventListener('click', function(){
   const total = getTotal('.form-input');
-  console.log(total);
-  console.log(sections.length * MAX)
   if(total == sections.length * MAX){
-    subForm();
+    sendToExcel();
+    let data = buildData();
+    buildRadar(data);
     tempMsg.innerHTML = "Do excel stuff";
   }else{
     console.log("Wait theres stuff to fix");

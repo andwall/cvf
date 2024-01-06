@@ -3,7 +3,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--gcds-font-families-heading);
+  font-family: var(--gcds-font-families-heading)!important;
 }
 h1{
   font: var(--gcds-font-h1);
@@ -26,9 +26,17 @@ h5{
 }
 
 h6{
-  font: var(--gcds-font-h6)
+  font: var(--gcds-font-h6)!important;
 }
 
 p{
-  font: var(--gcds-font-p)
+  font: var(--gcds-font-p)!important;
+}
+
+#container{
+  width: 100%; 
+  height: 0; 
+  margin: 0; 
+  padding: 50; 
+  display: none;
 }
